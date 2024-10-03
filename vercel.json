@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/stadiabeta",
+      "destination": "/stadiabeta.html"
+    }
+  ]
+}
