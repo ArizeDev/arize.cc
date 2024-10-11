@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/work",
+      "source": "/ScythexVersion",
       "destination": "/stadiabeta.html"
     }
   ]
