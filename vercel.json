@@ -3,7 +3,10 @@
     {
       "source": "/ScythexVersion",
       "destination": "/stadiabeta.html"
+    },
+    {
+      "source": "/RFLbeta",
+      "destination": "/RFL-SHOOT.html"
     }
   ]
 }
- 
