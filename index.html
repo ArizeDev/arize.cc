@@ -1,96 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>arize</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-image: url('https://i.pinimg.com/originals/79/03/62/790362911836f97e58bea8a63aa2ff0a.gif');
-            background-size: cover; /* Cover the entire page */
-            background-position: center; /* Center the background */
-            background-attachment: fixed; /* Keep background fixed while scrolling */
-            color: white; /* Optional: change text color for better contrast */
-        }
+<!-- design inspired by https://www.authkit.com/ -->
+<div class="header">
+  <h2><a href="https://codepen.io/RAFA3L" target="_blank" rel="noopener noreferrer">arize</a></h2>
+  <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div>
+  <button class="contact-btn">
+    <span class="glow"></span>
+    <span class="contact-btn-content">Dm me</span>
+  </button>
 
-        .profile-box {
-            background: rgba(19, 19, 19, 0.8); /* Translucent black background */
-            padding: 30px; /* Increased padding */
-            border-radius: 10px;
-            text-align: center;
-            width: 90%; /* Adjust width to be responsive */
-            max-width: 400px; /* Set a max width */
-            margin: auto;
-            margin-top: 100px;
-        }
+  <div class="spotlight">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
 
-        .profile-pic {
-            width: 120px; /* Adjusted size */
-            height: 120px; /* Adjusted size */
-            border-radius: 50%;
-            object-fit: cover; /* Ensure image covers the area */
-        }
+<canvas id="particleCanvas"></canvas>
 
-        .user-info {
-            margin-top: 10px;
-        }
+<div class="accent-lines">
+  <div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<div class="heroSubP">
+  <p></p>
+</div>
+<div class="hero">
+  <div class="heroT">
+    <h2>Arize</h2>
+    <h2>Arize</h2>
+  </div>
+</div>
+<p class="heroP">Luau ‣ Python ‣ C++ ‣ C# <br>
+ Website by zyn</p>
+<div class="mountains">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="hero-spacer"></div>
 
-        .name {
-            font-size: 28px; /* Increased font size */
-            font-weight: 600;
-        }
-
-        .status {
-            font-size: 16px; /* Increased font size */
-            color: lightgray;
-        }
-
-        .divider {
-            height: 2px;
-            background-color: white;
-            width: 80%; /* Set to a percentage for responsiveness */
-            margin: 20px auto; /* Centered */
-        }
-
-        .socials {
-            margin-top: 20px;
-            display: flex; /* Use flexbox for alignment */
-            justify-content: center; /* Center the icons */
-        }
-
-        .social-icon {
-            margin: 0 15px; /* Increased spacing */
-            color: white; /* Optional: social icons color */
-        }
-
-        .views {
-            margin-top: 20px;
-            font-size: 16px; /* Increased font size */
-            text-align: center; /* Centered text */
-        }
-    </style>
-</head>
-<body>
-    <div class="profile-box">
-        <img src="https://cdn.pfps.gg/pfps/5187-cat.pngE" alt="Profile Picture" class="profile-pic">
-        <div class="user-info">
-            <div class="name">arize 💎</div>
-            <div class="status">Tempoary page</div>
-        </div>
-        <div class="divider"></div>
-        <div class="socials">
-            <a href="discord.gg/dynamicc" target="_blank" class="social-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-                    <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
-                </svg>
-            </a>
-            </a>
-            <!-- Add more social links as needed -->
-        </div>
-        <div class="views">👁️ 2,099</div>
-    </div>
-</body>
-</html>
+<div class="content-section">
+  <div class="content-acc">
+    <div></div>
+    <div></div>
+  </div>
+  <p class="subt">Developer,</p>
+  <h3 class="title">⁛<br>
+    Reverse engineer</h3>
+  <p class="subp">I make exploits and Penetration tester <br>And UI/UX mainly WPF</p>
+</div>
