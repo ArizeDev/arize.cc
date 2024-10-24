@@ -75,15 +75,18 @@
 
             if (placeId && gameInstanceId) {
                 const robloxDeepLink = `roblox://experiences/start?placeId=${placeId}&gameInstanceId=${gameInstanceId}`;
-                window.location.replace(robloxDeepLink);
+                document.getElementById('text').innerHTML = `Joining <strong class="bold-text-3">your</strong> requested <strong class="bold-text-4">game...</strong>`;
+                setTimeout(() => {
+                    window.location.replace(robloxDeepLink);
+                }, 2000);  // Adds a slight delay for the user to see the message before redirect
             } else {
-                window.location.replace("https://discord.gg/urMvzEejGA");
+                document.getElementById('text').innerHTML = `JobID not found <strong class="bold-text">:(</strong>`;
             }
         };
     </script>
 </head>
 <body class="body">
-    <div id="text" class="text">Joining <strong class="bold-text-3">your</strong> requested <strong class="bold-text-4">game...</strong></div>
+    <div id="text" class="text"></div>
     <div class="footer">by Arize :)</div>
 </body>
 </html>
