@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "Astitane .lua",
+      "source": "Astitane.lua",
       "destination": "/Astitane"
     },
     {
