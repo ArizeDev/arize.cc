@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "argonscript.txt",
-      "destination": "/argon"
+      "source": "Astitane .lua",
+      "destination": "/Astitane"
     },
     {
       "source": "/RFLbeta",
