@@ -1,92 +1,109 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABF-X Redirector</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Dynamic Release</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --white: white;
-            --black: black;
+        body {
+            background: radial-gradient(circle at center, #0f0f0f, #000000);
+            font-family: 'Poppins', sans-serif;
         }
-
-        .body {
-            background-color: #080808;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .text {
-            clear: none;
-            outline-offset: 0px;
-            color: #fff;
-            text-align: center;
-            object-fit: none;
-            border-radius: 0;
-            outline: 3px #fff;
-            font-family: Montserrat, sans-serif;
-            font-size: 50px;
-            line-height: 40px;
-            display: block;
-            position: relative;
-            top: 0px;
-        }
-
-        .bold-text {
-            color: #ff0004;
-            position: fixed;
-        }
-
-        .bold-text-2 {
-            color: #0040ff;
-        }
-
-        .bold-text-3 {
-            color: #3d4dff;
-            text-shadow: 0 0 12px #3d4dff;
-        }
-
-        .bold-text-4 {
-            color: #ff074d;
-            text-shadow: 0 0 12px #ff074d;
-        }
-
-        .footer {
+        .glow-corner {
             position: absolute;
-            bottom: 10px;
-            color: white;
-            font-family: Montserrat, sans-serif;
-            font-size: 18px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,255,0,0.3), transparent);
+            pointer-events: none;
+            filter: blur(100px);
+        }
+        .top-left {
+            top: -50px;
+            left: -50px;
+        }
+        .bottom-right {
+            bottom: -50px;
+            right: -50px;
+        }
+        .glass-bg {
+            background: rgba(46, 46, 46, 0.55);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(46, 46, 46, 0.3);
+            position: relative;
+        }
+        .glass-bg::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(0,255,0,0.2), transparent);
+            filter: blur(30px);
+            z-index: -1;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
         }
     </style>
-    <script>
-        window.onload = function () {
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const placeId = urlParams.get("placeId");
-            const gameInstanceId = urlParams.get("gameInstanceId");
-
-            if (placeId && gameInstanceId) {
-                const robloxDeepLink = `roblox://experiences/start?placeId=${placeId}&gameInstanceId=${gameInstanceId}`;
-                document.getElementById('text').innerHTML = `Joining <strong class="bold-text-3">your</strong> requested <strong class="bold-text-4">game...</strong>`;
-                setTimeout(() => {
-                    window.location.replace(robloxDeepLink);
-                }, 2000);  // Adds a slight delay for the user to see the message before redirect
-            } else {
-                document.getElementById('text').innerHTML = `No JobID found <strong class="bold-text">:(</strong>`;
-            }
-        };
-    </script>
 </head>
-<body class="body">
-    <div id="text" class="text"></div>
-    <div class="footer">by Arize :) , i never update th is page or add any info abt me cus am not bothered this website is just to host stuff</div>
+<body class="flex items-center justify-center min-h-screen text-white relative">
+    <div class="glow-corner top-left"></div>
+    <div class="glow-corner bottom-right"></div>
+    <div class="text-center">
+        <h1 class="text-3xl font-bold">Dynamic <span class="text-green-500">Release</span></h1>
+        <h2 class="mt-4 text-4xl font-bold" style="font-family: 'Poppins', sans-serif;">Revolutionizing Roblox Exploiting <span class="underline text-green-500 glow-text">FOREVER.</span></h2>
+        <div class="mt-8 px-24 py-6 rounded-lg inline-block glass-bg">
+            <div id="countdown" class="text-6xl font-bold text-green-500 tracking-wide">00:00:00:00</div>
+            <div class="flex justify-between mt-2 text-sm text-gray-400">
+                <span>Days</span>
+                <span>Hours</span>
+                <span>Minutes</span>
+                <span>Seconds</span>
+            </div>
+        </div>
+        <div class="mt-8 flex justify-center space-x-4">
+            <a href="#" class="flex items-center px-4 py-2 glass-bg">
+                <i class="fab fa-discord text-2xl mr-2"></i> Join Our Discord!
+            </a>
+            <a href="#" class="flex items-center px-4 py-2 glass-bg">
+                <i class="fab fa-telegram text-2xl mr-2"></i> Join Our Telegram
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const targetTimestamp = 1736610561;
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = Math.floor(Date.now() / 1000);
+            const timeRemaining = targetTimestamp - now;
+
+            if (timeRemaining <= 0) {
+                countdownElement.innerText = "00:00:00:00";
+                return;
+            }
+
+            const days = Math.floor(timeRemaining / (60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (60 * 60 * 24)) / (60 * 60));
+            const minutes = Math.floor((timeRemaining % (60 * 60)) / 60);
+            const seconds = timeRemaining % 60;
+
+            countdownElement.innerText = `${formatTime(days)}:${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
+        }
+
+        function formatTime(unit) {
+            return unit < 10 ? `0${unit}` : unit;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
 </body>
 </html>
