@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "key.html",
-      "destination": "/Dynamic/Key/1"
+      "destination": "/DynamicKey1"
     },
     {
       "source": "/RFLbeta",
