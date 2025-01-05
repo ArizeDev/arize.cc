@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "Astitane.lua",
-      "destination": "/Astitane"
+      "source": "key.html",
+      "destination": "/Dynamic/Key/1"
     },
     {
       "source": "/RFLbeta",
